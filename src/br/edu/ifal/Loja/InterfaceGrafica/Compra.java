@@ -1,7 +1,7 @@
 package br.edu.ifal.Loja.InterfaceGrafica;
 
-import br.edu.ifal.Loja.BEANS.ModeloTabela;
-import br.edu.ifal.Loja.BEANS.ProdutoBEAN;
+import br.edu.BEANS.ModeloTabela;
+import br.edu.BEANS.ProdutoBEAN;
 import br.edu.ifal.Loja.DAO.Conexao;
 import static java.lang.Math.floor;
 import java.sql.PreparedStatement;

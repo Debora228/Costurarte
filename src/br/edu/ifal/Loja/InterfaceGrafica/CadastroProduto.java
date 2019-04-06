@@ -15,7 +15,7 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
     public CadastroProduto() {
         initComponents();
         conecta.conexao();
-        JcomboxCategoria();
+        
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -33,8 +33,6 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
         marca = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         cor = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        categoriaPES = new javax.swing.JComboBox();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         quantidade = new javax.swing.JTextField();
@@ -95,21 +93,14 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
 
         cor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Categoria: ");
-
-        categoriaPES.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        categoriaPES.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione" }));
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -120,20 +111,16 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
+                                .addGap(47, 47, 47)
                                 .addComponent(jLabel8)
                                 .addGap(18, 18, 18)
                                 .addComponent(cor))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
+                                .addGap(33, 33, 33)
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
-                                .addComponent(marca, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(categoriaPES, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(marca, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 240, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -155,10 +142,7 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(cor, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(categoriaPES, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(28, 28, 28))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Estoque", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
@@ -264,7 +248,7 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cadastrarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Apagar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -278,11 +262,11 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
 
     private void cadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarProdutoActionPerformed
         try {
-            String categoria = (String) categoriaPES.getSelectedItem();
+            
             PreparedStatement pst = conecta.conn.prepareStatement("insert into produto (Nome,Descricao,Categoria,Quantidade,Preco_venda,cor,unidade_de_medida,marca) VALUES (?, ?, ?, ?,?,?,?,?)");
             pst.setString(1, nomeProduto.getText());
             pst.setString(2, descricao.getText());
-            pst.setString(3, categoria);
+            //pst.setString(3, categoria);
             pst.setInt(4, Integer.parseInt(quantidade.getText()));
             pst.setDouble(5, Double.parseDouble(precoUnitario.getText()));
             pst.setString(6, cor.getText());
@@ -315,71 +299,22 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_medidaActionPerformed
 
     private void precoUnitarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precoUnitarioKeyPressed
-       if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-           try {
-            String categoria = (String) categoriaPES.getSelectedItem();
-            PreparedStatement pst = conecta.conn.prepareStatement("insert into produto (Nome,Descricao,Categoria,Quantidade,Preco_venda,cor,unidade_de_medida,marca) VALUES (?, ?, ?, ?,?,?,?,?)");
-            pst.setString(1, nomeProduto.getText());
-            pst.setString(2, descricao.getText());
-            pst.setString(3, categoria);
-            pst.setInt(4, Integer.parseInt(quantidade.getText()));
-            pst.setDouble(5, Double.parseDouble(precoUnitario.getText()));
-            pst.setString(6, cor.getText());
-            pst.setString(7, medida.getText());
-            pst.setString(8, marca.getText());
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Não foi inserido!\n Erro: " + ex.getMessage());
-        }
-       }
+       
     }//GEN-LAST:event_precoUnitarioKeyPressed
 
     private void cadastrarProdutoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cadastrarProdutoKeyPressed
-         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-           try {
-            String categoria = (String) categoriaPES.getSelectedItem();
-            PreparedStatement pst = conecta.conn.prepareStatement("insert into produto (Nome,Descricao,Categoria,Quantidade,Preco_venda,cor,unidade_de_medida,marca) VALUES (?, ?, ?, ?,?,?,?,?)");
-            pst.setString(1, nomeProduto.getText());
-            pst.setString(2, descricao.getText());
-            pst.setString(3, categoria);
-            pst.setInt(4, Integer.parseInt(quantidade.getText()));
-            pst.setDouble(5, Double.parseDouble(precoUnitario.getText()));
-            pst.setString(6, cor.getText());
-            pst.setString(7, medida.getText());
-            pst.setString(8, marca.getText());
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Não foi inserido!\n Erro: " + ex.getMessage());
-        }
-       }
+         
     }//GEN-LAST:event_cadastrarProdutoKeyPressed
-    private void JcomboxCategoria(){
-       try{
-        PreparedStatement pst = conecta.conn.prepareStatement("Select nome from Categoria");
-        ResultSet rs = pst.executeQuery();
-        while(rs.next()) { 
-                    categoriaPES.addItem(rs.getString("nome"));
-                }
-        } catch (SQLException ex) {
-            Logger.getLogger(Compra.class.getName()).log(Level.SEVERE, null, ex);
-     
-        }
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Apagar;
     private javax.swing.JButton cadastrarProduto;
-    private javax.swing.JComboBox categoriaPES;
     private javax.swing.JTextField cor;
     private javax.swing.JTextField descricao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel6;

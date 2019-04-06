@@ -19,12 +19,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/E:/Débora/Consturarte/src/br/edu/ifal/Loja/BEANS/ProdutoBEAN.java</file>
-            <file>file:/E:/Débora/Consturarte/src/br/edu/ifal/Loja/InterfaceGrafica/CadastroProduto.java</file>
-            <file>file:/E:/Débora/Consturarte/src/br/edu/ifal/Loja/BEANS/CarrinhoBEAN.java</file>
-            <file>file:/E:/Débora/Consturarte/src/br/edu/ifal/Loja/DAO/Conexao.java</file>
-            <file>file:/E:/Débora/Consturarte/src/br/edu/ifal/Loja/InterfaceGrafica/Menu.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

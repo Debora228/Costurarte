@@ -1,8 +1,8 @@
 
 package br.edu.ifal.Loja.InterfaceGrafica;
 
-import br.edu.ifal.Loja.BEANS.CarrinhoBEAN;
-import br.edu.ifal.Loja.BEANS.ModeloTabela;
+import br.edu.BEANS.CarrinhoBEAN;
+import br.edu.BEANS.ModeloTabela;
 import br.edu.ifal.Loja.DAO.Conexao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
