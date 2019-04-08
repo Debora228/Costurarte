@@ -6,11 +6,9 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
-import BEANS.ClienteBEAN;
+import model.ClienteBEAN;
 
 public class ClienteDAO {
-	private ClienteBEAN cliente;
-	
 	Conexao conecta = new Conexao();
     public ClienteDAO(){
         conecta.conexao();    

@@ -1,12 +1,13 @@
 package InterfaceGrafica;
 
-import DAO.Conexao;
 import java.awt.event.KeyEvent;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+
+import dao.Conexao;
 
 public class CadastroCategoria extends javax.swing.JInternalFrame {
      Conexao conecta = new Conexao();

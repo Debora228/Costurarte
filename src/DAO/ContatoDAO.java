@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
-import BEANS.ContatoBEAN;
+import model.ContatoBEAN;
 
 public class ContatoDAO {
 	private ContatoBEAN contato;
