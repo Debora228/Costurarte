@@ -33,6 +33,8 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
         marca = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         cor = new javax.swing.JTextField();
+        categoriaPES = new javax.swing.JComboBox();
+        jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         quantidade = new javax.swing.JTextField();
@@ -93,6 +95,17 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
 
         cor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        categoriaPES.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        categoriaPES.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione" }));
+        categoriaPES.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                categoriaPESActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setText("Categoria: ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -122,6 +135,12 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                                 .addComponent(marca, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 240, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(categoriaPES, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,7 +161,10 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(cor, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(categoriaPES, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Estoque", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
@@ -262,11 +284,11 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
 
     private void cadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarProdutoActionPerformed
         try {
-            
+            String categoria = (String) categoriaPES.getSelectedItem();
             PreparedStatement pst = conecta.conn.prepareStatement("insert into produto (Nome,Descricao,Categoria,Quantidade,Preco_venda,cor,unidade_de_medida,marca) VALUES (?, ?, ?, ?,?,?,?,?)");
             pst.setString(1, nomeProduto.getText());
             pst.setString(2, descricao.getText());
-            //pst.setString(3, categoria);
+            pst.setString(3, categoria);
             pst.setInt(4, Integer.parseInt(quantidade.getText()));
             pst.setDouble(5, Double.parseDouble(precoUnitario.getText()));
             pst.setString(6, cor.getText());
@@ -305,16 +327,22 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
     private void cadastrarProdutoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cadastrarProdutoKeyPressed
          
     }//GEN-LAST:event_cadastrarProdutoKeyPressed
+
+    private void categoriaPESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaPESActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_categoriaPESActionPerformed
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Apagar;
     private javax.swing.JButton cadastrarProduto;
+    private javax.swing.JComboBox categoriaPES;
     private javax.swing.JTextField cor;
     private javax.swing.JTextField descricao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel6;

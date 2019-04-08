@@ -38,6 +38,7 @@ public class Menu extends javax.swing.JFrame {
         CadProduto = new javax.swing.JMenuItem();
         CadCliente = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         Consultar = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -118,6 +119,15 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         cadastro.add(jMenuItem3);
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("Categoria");
+        jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItem1ActionPerformed(evt);
+            }
+        });
+        cadastro.add(jCheckBoxMenuItem1);
 
         jMenuBar1.add(cadastro);
 
@@ -226,6 +236,11 @@ public class Menu extends javax.swing.JFrame {
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu2MouseClicked(evt);
+            }
+        });
+        jMenu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu2ActionPerformed(evt);
             }
         });
         jMenuBar1.add(jMenu2);
@@ -385,6 +400,17 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
+    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu2ActionPerformed
+
+    private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
+        CadastroCategoria telaCadCat = new CadastroCategoria();
+        painel.add(telaCadCat);
+        telaCadCat.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -398,6 +424,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem CadProduto;
     private javax.swing.JMenu Consultar;
     private javax.swing.JMenu cadastro;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem6;
     private javax.swing.JLabel jLabel1;

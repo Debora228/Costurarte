@@ -7,7 +7,7 @@ public class Conexao {
     private Statement stm;
     public ResultSet rs;
     private String driver = "jdbc.mysql.Driver";
-    private String caminho = "jdbc:mysql://localhost/teste3";
+    private String caminho = "jdbc:mysql://localhost/costurarte";
     private String usuario = "root";
     private String senha = "";
     public Connection conn;
