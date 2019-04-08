@@ -10,8 +10,9 @@ public class ProdutoBEAN {
     private String cor;
     private String marca;
     private double preco_venda;
-
-    public ProdutoBEAN(int id, String nome, double preco_Custo, String descricao, String categoria, String cor, String marca,double preco_venda) {
+    private int quantidade;
+    
+    public ProdutoBEAN(int id, String nome, double preco_Custo, String descricao, String categoria, String cor, String marca,double preco_venda, int quantidade) {
         this.id = id;
         this.nome = nome;
         this.preco_Custo = preco_Custo;
@@ -20,9 +21,15 @@ public class ProdutoBEAN {
         this.cor = cor;
         this.marca = marca;
         this.preco_venda = preco_venda;
-        
+        this.quantidade = quantidade;
     }
-    public ProdutoBEAN() {
+    public int getQuantidade() {
+		return quantidade;
+	}
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+	public ProdutoBEAN() {
     }
     
    public String toString (){

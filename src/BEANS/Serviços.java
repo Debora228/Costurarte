@@ -1,16 +1,16 @@
 
 package BEANS;
-public class ServiÃ§os {
+public class Serviços {
     private String nome;
     private double preco;
     private int quant;
 
-    public ServiÃ§os(String nome, double preco,int quant) {
+    public Serviços(String nome, double preco,int quant) {
         this.nome = nome;
         this.preco = preco;
         this.quant=quant;
     }
-    public ServiÃ§os(String nome, double preco) {
+    public Serviços(String nome, double preco) {
         this.nome = nome;
         this.preco = preco;
     }
