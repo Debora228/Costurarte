@@ -1,15 +1,9 @@
 package DAO;
 
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
-import javax.swing.JOptionPane;
-
-import BEANS.FornecedorBEAN;
-
-import java.sql.PreparedStatement;
 
 import java.sql.SQLException;
+
 import javax.swing.JOptionPane;
 
 import BEANS.ClienteBEAN;
