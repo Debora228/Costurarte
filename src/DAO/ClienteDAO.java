@@ -24,15 +24,15 @@ public class ClienteDAO {
     PreparedStatement pst;
     
 	
-	private void inserirFonecedor(ClienteBEAN cliente) {//GEN-FIRST:event_numeroKeyPressed
+	private void inserirCliente(ClienteBEAN cliente) {//GEN-FIRST:event_numeroKeyPressed
             try {
-            pst = conecta.conn.prepareStatement("insert into Cliente(Nome,Cnpj,Telefone,Bairro,Rua,Numero) values (?,?,?,?,?,?)");
-            pst.setString(1, fornecedor.getCon().getNome());
-            pst.setString(2, fornecedor.getCnpj());
-            pst.setString(3, fornecedor.getCon().getTelefone());
-            pst.setString(4, fornecedor.getCon().getBairro());
-            pst.setString(5, fornecedor.getCon().getRua());
-            pst.setInt(6, fornecedor.getCon().getNumero());
+            pst = conecta.conn.prepareStatement("insert into Cliente(Cpf,Nome,Telefone,DataNascimento,Bairro,Rua,Numero) values (?,?,?,?,?,?,?)");
+            pst.setString(1, cliente.getCpf());
+            pst.setString(2, cliente.getContato().getNome());
+            pst.setString(3, cliente.getContato().getTelefone());
+            pst.setString(4, cliente.getData_nascimento());
+            pst.setString(5, cliente.getContato().getBairro());
+            pst.setInt(6, cliente.getContato().getNumero());
 
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
@@ -42,4 +42,3 @@ public class ClienteDAO {
         }
         }
     }
-}
