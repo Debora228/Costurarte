@@ -2,13 +2,16 @@ package DAO;
 
 import java.sql.PreparedStatement;
 
-import java.sql.SQLException;
 
+import java.sql.SQLException;
+import DataSource.Conexao;
 import javax.swing.JOptionPane;
 
-import model.ClienteBEAN;
+import model.Cliente;
 
 public class ClienteDAO {
+	private Cliente cliente;
+	
 	Conexao conecta = new Conexao();
     public ClienteDAO(){
         conecta.conexao();    
@@ -16,16 +19,12 @@ public class ClienteDAO {
     PreparedStatement pst;
     
 	
-	private void inserirCliente(ClienteBEAN cliente) {//GEN-FIRST:event_numeroKeyPressed
+	public void inserirCliente(Cliente cliente) {//GEN-FIRST:event_numeroKeyPressed
             try {
-            pst = conecta.conn.prepareStatement("insert into Cliente(Cpf,Nome,Telefone,DataNascimento,Bairro,Rua,Numero) values (?,?,?,?,?,?,?)");
+            pst = conecta.conn.prepareStatement("insert into Cliente(Cpf,DataNascimento, Contato_FK) values (?,?,?)");
             pst.setString(1, cliente.getCpf());
-            pst.setString(2, cliente.getContato().getNome());
-            pst.setString(3, cliente.getContato().getTelefone());
-            pst.setString(4, cliente.getData_nascimento());
-            pst.setString(5, cliente.getContato().getBairro());
-            pst.setInt(6, cliente.getContato().getNumero());
-
+            pst.setString(2, cliente.getDataNascimento());
+            pst.setInt(3,cliente.getContato().getContato_Id());
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
 

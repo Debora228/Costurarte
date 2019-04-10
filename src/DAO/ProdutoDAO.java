@@ -2,15 +2,16 @@
 package DAO;
 
 import java.sql.PreparedStatement;
+
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-import BEANS.ProdutoBEAN;
-
+import model.Produto;
+import DataSource.Conexao;
 
 public class ProdutoDAO {
 	
-	private ProdutoBEAN produto;
+	private Produto produto;
     Conexao conecta = new Conexao();
     public ProdutoDAO(){
         conecta.conexao();    
@@ -18,14 +19,13 @@ public class ProdutoDAO {
     PreparedStatement pst;
     
     
-    public void inserirProduto(ProdutoBEAN produto){
+    public void inserirProduto(Produto produto){
         try {
             pst = conecta.conn.prepareStatement("insert into produto (Nome,Descricao,Categoria,Quantidade,Preco_venda,cor,marca) VALUES (?, ?, ?, ?,?,?,?)");
             pst.setString(1,produto.getNome());
             pst.setString(2, produto.getDescricao());
-            pst.setString(3, produto.getCategoria());
-            pst.setInt(4, produto.getQuantidade());
-            pst.setDouble(5, produto.getPreco_venda());
+            pst.setInt(3, produto.getCategoria().getCod());
+            pst.setDouble(5, produto.getPrecoVenda());
             pst.setString(6, produto.getCor());
             pst.setString(7, produto.getMarca());
             pst.executeUpdate();
@@ -35,4 +35,15 @@ public class ProdutoDAO {
             JOptionPane.showMessageDialog(null, "Não foi inserido!\n Erro: " + ex.getMessage());
         }
     }
+    
+	public void removerProduto(int id) {
+		String sql = "DELETE FROM PRODUTO WHERE id ='" + id +"'";
+		try {
+		conecta.executaSQL(sql);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
 }
