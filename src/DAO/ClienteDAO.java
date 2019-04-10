@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 
 
 import java.sql.SQLException;
-import DataSource.Conexao;
+import DataSource.DataSource;
 import javax.swing.JOptionPane;
 
 import model.Cliente;
@@ -12,7 +12,7 @@ import model.Cliente;
 public class ClienteDAO {
 	private Cliente cliente;
 	
-	Conexao conecta = new Conexao();
+	DataSource conecta = new DataSource();
     public ClienteDAO(){
         conecta.conexao();    
     }

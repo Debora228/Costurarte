@@ -2,16 +2,12 @@ package model;
 
 public class Contato {
 	
-	private int contato_Id;
 	private String nome;
 	private int numero;
 	private String bairro;
 	private String rua;
 	private String telefone;
 	
-	public int getContato_Id() {
-		return this.contato_Id;
-	}
 	
 	public String getTelefone() {
 		return this.telefone;

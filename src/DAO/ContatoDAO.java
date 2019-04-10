@@ -1,33 +1,54 @@
 package DAO;
 
+
+import model.Contato;
+
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
-import model.Contato;
-import DataSource.Conexao;
-import br.ufal.aracomp.jdbc.model.Cliente;
+import DataSource.DataSource;
 
 public class ContatoDAO {
-	private Contato contato;
-
-	Conexao conecta = new Conexao();
+	
+	PreparedStatement pst;
+	DataSource conecta = new DataSource();
     public ContatoDAO(){
         conecta.conexao();    
     }
-    PreparedStatement pst;
     
+    /*
+    public void adicionar(Contato contato) {
+    	String sql = "insert into Contato(Nome, Telefone, Bairro, Rua, Numero) values('" + contato.getNome()+"','"+contato.getTelefone()+ "','"+contato.getBairro()+"','"+ contato.getRua()+"',"+ contato.getNumero()+")";
+			//String sql2 = "INSERT INTO Contato(login, nome) VALUES('"+filme.getCodigo()+"','"+filme.getNome()+"')";
+			try {
+			dataSource.executarQueryGeral(sql);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+	}
+
+	public void remover(String nome) {
+		String sql = "DELETE FROM Contato WHERE nome ='" + nome +"'";
+		try {
+		dataSource.executarQueryGeral(sql);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+    */
 	
 	public void inserirContato(Contato contato) {
             try {
-            pst = conecta.conn.prepareStatement("insert into Contato(Nome, Telefone, Numero, Bairro, Rua) values (?,?,?,?,?)");
+            pst = conecta.conn.prepareStatement("insert into Contato(Nome, Telefone,  Bairro, Rua,Numero) values (?,?,?,?,?)");
             pst.setString(1, contato.getNome());
             pst.setString(2, contato.getTelefone());
-            pst.setInt(3, contato.getNumero());
-            pst.setString(4, contato.getBairro());
-            pst.setString(5, contato.getRua());
+            pst.setString(3, contato.getBairro());
+            pst.setString(4, contato.getRua());
+            pst.setInt(5, contato.getNumero());
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
 
@@ -35,7 +56,7 @@ public class ContatoDAO {
             JOptionPane.showMessageDialog(null, "Não foi inserido!" );
         }
         }
-	
+	/*
 	public Contato consultar(String login) {
 		String sql = "SELECT nome FROM cliente WHERE login = '" + login + "'";
 		try {
@@ -48,5 +69,5 @@ public class ContatoDAO {
 		}
 		return null;
 	}
-  
+  */
     }

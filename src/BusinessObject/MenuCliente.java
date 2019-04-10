@@ -4,10 +4,14 @@ import model.Cliente;
 import model.Contato;
 import DAO.ClienteDAO;
 import DAO.ContatoDAO;
+import DataSource.DataSource;
 
 public class MenuCliente {
 	Scanner sc = new Scanner(System.in);
-	
+	DataSource conecta = new DataSource();
+	public MenuCliente() {
+		conecta.conexao();    
+	}
 	public void inicial() {
 		System.out.println( "____________________CLIENTES________________________\r\n" + 
 				"\r\n" + 

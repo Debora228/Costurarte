@@ -2,19 +2,21 @@ package DataSource;
 
 import java.sql.*;
 
-public class Conexao {
-    private Statement stm;
-    public ResultSet rs;
-    private String driver = "jdbc.mysql.Driver";
-    private String caminho = "jdbc:mysql://localhost/costurarte";
-    private String usuario = "root";
-    private String senha = "123456";
-    public Connection conn;
+public class DataSource {
     
+	private String usuario = "root";
+	private String senha = "";
+	private String caminho = "jdbc:mysql://localhost/costurarte?useTimezone=true&serverTimezone=UTC";
+    private String driver = "jdbc.mysql.Driver";
+    public Connection conn = null;
+    private Statement stm = null;
+    ResultSet rs;
+     
+   
     public void conexao(){
         try {
             System.setProperty("jdbc.Drivers", driver);
-            conn = DriverManager.getConnection(caminho,usuario,senha);// ATENÇÃO!!!
+            conn = DriverManager.getConnection(caminho,usuario,senha);
             System.out.println("Conexao com o banco de dados realizada com sucesso");
         } catch (SQLException ex) {
             System.out.println("Erro na conexao com o banco:\n Erro: "+ex.getMessage());

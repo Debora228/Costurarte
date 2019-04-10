@@ -7,12 +7,12 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 import model.Produto;
-import DataSource.Conexao;
+import DataSource.DataSource;
 
 public class ProdutoDAO {
 	
 	private Produto produto;
-    Conexao conecta = new Conexao();
+    DataSource conecta = new DataSource();
     public ProdutoDAO(){
         conecta.conexao();    
     }
