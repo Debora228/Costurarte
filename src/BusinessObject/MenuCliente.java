@@ -41,17 +41,17 @@ public class MenuCliente {
 		
 		@SuppressWarnings("resource")
 		Scanner add = new Scanner(System.in);
-		System.out.println("DIGITE O NOME DO CLIENTE: ");
+		System.out.println("DIGITE O NOME DO CONTATO: ");
 		String nome = add.nextLine();
 		contato.setNome(nome);
-		System.out.println("DIGITE O NÚMERO DA CASA DO CLIENTE: ");
+		System.out.println("DIGITE O NÚMERO DA CASA DO CONTATO: ");
 		int numero = Integer.parseInt(add.nextLine());
 		contato.setNumero(numero);
-		System.out.println("DIGITE O RUA DO CLIENTE: ");
+		System.out.println("DIGITE O RUA DO CONTATO: ");
 		contato.setRua(add.nextLine());
-		System.out.println("DIGITE O BAIRRO DO CLIENTE: ");
+		System.out.println("DIGITE O BAIRRO DO CONTATO: ");
 		contato.setBairro(add.nextLine());
-		System.out.println("DIGITE O TELEFONE DO CLIENTE: ");
+		System.out.println("DIGITE O TELEFONE DO CONTATO: ");
 		contato.setTelefone(add.nextLine());
 		
 		ContatoDAO contatoDAO = new ContatoDAO();
@@ -60,19 +60,23 @@ public class MenuCliente {
 	}
 
 	public void addCliente(Cliente c) {
-		
+		Contato contato = new Contato();
 		@SuppressWarnings("resource")
 		Scanner add = new Scanner(System.in);
+		
+		System.out.println("DIGITE O CÓDIGO DO CLIENTE: ");
+		int codigo = Integer.parseInt(add.nextLine());
+		c.setClienteId(codigo);
 		System.out.println("DIGITE O CPF DO CLIENTE: ");
 		String cpf = add.nextLine();
 		c.setCpf(cpf);
 		System.out.println("DIGITE A DATA DE NASCIMENTO DO CLIENTE: (PADRAO DD/MM/AA) ");
 		String dataNascimento= add.nextLine();
 		c.setDataNascimento(dataNascimento);
+		System.out.println("DIGITE A NOME DO CLIENTE: ");
+		String nome= add.nextLine();
+		c.setContato(contato).setNome(nome);
 		
-		/*
-		*/
-		//c.setContato(co);
 		ClienteDAO cd = new ClienteDAO();
 		cd.inserirCliente(c);
 	}

@@ -10,22 +10,24 @@ import javax.swing.JOptionPane;
 import model.Cliente;
 
 public class ClienteDAO {
-	private Cliente cliente;
-	
-	DataSource conecta = new DataSource();
+	PreparedStatement pst;
+    DataSource conecta = new DataSource();
     public ClienteDAO(){
         conecta.conexao();    
     }
-    PreparedStatement pst;
     
 	
-	public void inserirCliente(Cliente cliente) {//GEN-FIRST:event_numeroKeyPressed
-            try {
-            pst = conecta.conn.prepareStatement("insert into Cliente(Cpf,DataNascimento, Contato_FK) values (?,?,?)");
-            pst.setString(1, cliente.getCpf());
-            pst.setString(2, cliente.getDataNascimento());
-            pst.setInt(3,cliente.getContato().getContato_Id());
+	public void inserirCliente(Cliente cliente) {
+		
+		try {
+            pst = conecta.conn.prepareStatement("insert into Cliente(Cliente_Id,Cpf,DataNascimento, nome) values (?,?,?,?)");
+            pst.setInt(1, cliente.getClienteId());
+            pst.setString(2, cliente.getCpf());
+            pst.setString(3, cliente.getDataNascimento());
+            pst.setString(4, cliente.getContato().getNome());
             pst.executeUpdate();
+            
+            System.out.println("inserido " + cliente.getContato().getNome());
             JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
 
         } catch (SQLException ex) {

@@ -21,8 +21,9 @@ public class ProdutoDAO {
     
     public void inserirProduto(Produto produto){
         try {
-            pst = conecta.conn.prepareStatement("insert into produto (Nome,Descricao,Categoria,Quantidade,Preco_venda,cor,marca) VALUES (?, ?, ?, ?,?,?,?)");
-            pst.setString(1,produto.getNome());
+            pst = conecta.conn.prepareStatement("insert into produto (Produto_Id,Nome,Categoria,Descricao,Quantidade,cor,marca,Preco_venda) VALUES (?, ?, ?, ?,?,?,?)");
+            pst.setInt(1,produto.getId());
+            pst.setString(2,produto.getNome());
             pst.setString(2, produto.getDescricao());
             pst.setInt(3, produto.getCategoria().getCod());
             pst.setDouble(5, produto.getPrecoVenda());
