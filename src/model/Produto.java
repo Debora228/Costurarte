@@ -2,7 +2,7 @@ package model;
 
 public class Produto {
 	
-	private int id;
+	private int cod;
 	private String nome;
 	private double precoCusto;
 	private String descricao;
@@ -12,11 +12,11 @@ public class Produto {
 	private Categoria categoria;
 	
 	
-	public int getId() {
-		return id;
+	public int getCod() {
+		return cod;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setCod(int cod) {
+		this.cod = cod;
 	}
 	public String getNome() {
 		return nome;
@@ -64,7 +64,7 @@ public class Produto {
 	
 	@Override
 	public String toString() {
-		return "Produto [id=" + id + ", nome=" + nome + ", precoCusto=" + precoCusto + ", decricao=" + descricao
+		return "Produto [codigo=" + cod + ", nome=" + nome + ", precoCusto=" + precoCusto + ", decricao=" + descricao
 				+ ", categoria=" + categoria + ", cor=" + cor + ", marca=" + marca + ", precoVenda=" + precoVenda + "]";
 	}
 	

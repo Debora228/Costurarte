@@ -22,7 +22,7 @@ public class ProdutoDAO {
     public void inserirProduto(Produto produto){
         try {
             pst = conecta.conn.prepareStatement("insert into produto (Produto_Id,Nome,Categoria,Descricao,Quantidade,cor,marca,Preco_venda) VALUES (?, ?, ?, ?,?,?,?)");
-            pst.setInt(1,produto.getId());
+            pst.setInt(1,produto.getCod());
             pst.setString(2,produto.getNome());
             pst.setString(2, produto.getDescricao());
             pst.setInt(3, produto.getCategoria().getCod());
@@ -37,8 +37,8 @@ public class ProdutoDAO {
         }
     }
     
-	public void removerProduto(int id) {
-		String sql = "DELETE FROM PRODUTO WHERE id ='" + id +"'";
+	public void removerProduto(int cod) {
+		String sql = "DELETE FROM PRODUTO WHER cod ='" + cod +"'";
 		try {
 		conecta.executaSQL(sql);
 		}catch(Exception e) {
