@@ -5,7 +5,7 @@ import java.sql.*;
 public class DataSource {
     
 	private String usuario = "root";
-	private String senha = "";
+	private String senha = "123456";
 	private String caminho = "jdbc:mysql://localhost/costurarte?useTimezone=true&serverTimezone=UTC";
     private String driver = "jdbc.mysql.Driver";
     public Connection conn = null;
@@ -27,7 +27,7 @@ public class DataSource {
             stm = conn.createStatement(rs.TYPE_SCROLL_INSENSITIVE,rs.CONCUR_READ_ONLY);
             rs = stm.executeQuery(sql);
         } catch (SQLException ex) {
-           // JOptionPane.showMessageDialog(null,"Erro ao executar SQL! \n Erro:" + ex.Message());
+           System.out.println("Erro ao executar SQL! \n Erro:" + ex);
         }
     }
     
@@ -42,6 +42,10 @@ public class DataSource {
 			throw e2;
 		}
 	}
+    
+    
+    
+    
 	public int executarQueryGeral(String sql) throws Exception {
 		try {
 			if(stm == null)
@@ -52,6 +56,10 @@ public class DataSource {
 			Exception e2 = new Exception("Erro ao executar query!", e);
 			throw e2;
 		}
+		
+
+       
+		
 	}
     public void desconecta(){
         try{

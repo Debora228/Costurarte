@@ -21,16 +21,18 @@ public class ProdutoDAO {
     
     public void inserirProduto(Produto produto){
         try {
-            pst = conecta.conn.prepareStatement("insert into produto (Produto_Id,Nome,Categoria,Descricao,Quantidade,cor,marca,Preco_venda) VALUES (?, ?, ?, ?,?,?,?)");
+            pst = conecta.conn.prepareStatement("insert into produto (Produto_ID,Nome,Categoria,Descricao,Quantidade,cor,marca,Preco_venda,Preco_Custo) VALUES ( ?,?, ?, ?,?,?,?,?,?)");
             pst.setInt(1,produto.getCod());
             pst.setString(2,produto.getNome());
-            pst.setString(2, produto.getDescricao());
             pst.setInt(3, produto.getCategoria().getCod());
-            pst.setDouble(5, produto.getPrecoVenda());
+            pst.setString(4, produto.getDescricao());
+            pst.setInt(5, produto.getQuantidade());
             pst.setString(6, produto.getCor());
             pst.setString(7, produto.getMarca());
+            pst.setDouble(8, produto.getPrecoVenda());
+            pst.setDouble(9, produto.getPrecoCusto());
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+            System.out.println( "Inserido com sucesso!");
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Não foi inserido!\n Erro: " + ex.getMessage());
@@ -38,13 +40,19 @@ public class ProdutoDAO {
     }
     
 	public void removerProduto(int cod) {
-		String sql = "DELETE FROM PRODUTO WHER cod ='" + cod +"'";
 		try {
-		conecta.executaSQL(sql);
+		PreparedStatement pst =  conecta.conn.prepareStatement("delete from Produto where Produto_Id=?");
+		pst.setInt(1,cod);
+	    pst.execute();
+		//String sql = "DELETE FROM PRODUTO WHERE Produto_Id ='" + cod +"'";
+		
+		//conecta.executarQueryGeral(sql);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		
 	}
-
+	
+     
+     		
 }

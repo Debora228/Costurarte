@@ -10,8 +10,15 @@ public class Produto {
 	private String marca;
 	private double precoVenda;
 	private Categoria categoria;
+	private int quantidade;
 	
 	
+	public int getQuantidade() {
+		return quantidade;
+	}
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
 	public int getCod() {
 		return cod;
 	}
@@ -61,11 +68,13 @@ public class Produto {
 	public void setPrecoVenda(double precoVenda) {
 		this.precoVenda = precoVenda;
 	}
-	
 	@Override
 	public String toString() {
-		return "Produto [codigo=" + cod + ", nome=" + nome + ", precoCusto=" + precoCusto + ", decricao=" + descricao
-				+ ", categoria=" + categoria + ", cor=" + cor + ", marca=" + marca + ", precoVenda=" + precoVenda + "]";
+		return "Produto [cod=" + cod + ", nome=" + nome + ", precoCusto=" + precoCusto + ", descricao=" + descricao
+				+ ", cor=" + cor + ", marca=" + marca + ", precoVenda=" + precoVenda + ", categoria=" + categoria
+				+ ", quantidade=" + quantidade + "]";
 	}
+	
+	
 	
 }

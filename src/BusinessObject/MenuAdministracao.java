@@ -2,10 +2,9 @@ package BusinessObject;
 
 import java.util.Scanner;
 
+import DAO.CategoriaDAO;
 import DAO.ProdutoDAO;
-import DAO.ContatoDAO;
 import model.Categoria;
-import model.Contato;
 import model.Produto;
 
 public class MenuAdministracao{
@@ -48,14 +47,17 @@ public class MenuAdministracao{
 		System.out.println("DIGITE O CÓDIGO DO PRODUTO: ");
 		int codigo= Integer.parseInt( add.nextLine());
 		produto.setCod(codigo);
+		
 		System.out.println("DIGITE O NOME DO PRODUTO: ");
 		String nome = add.nextLine();
 		produto.setNome(nome);
 
 		System.out.println("DIGITE O PRECO DO PRODUTO: ");
-		Double preco = add.nextDouble();
+		double preco = add.nextDouble();
 		produto.setPrecoCusto(preco);
-
+		
+		add.nextLine();
+		
 		System.out.println("DIGITE A DESCRICAO DO PRODUTO: ");
 		String descricao = add.nextLine();
 		produto.setDescricao(descricao);
@@ -68,14 +70,20 @@ public class MenuAdministracao{
 		String marca = add.nextLine();
 		produto.setMarca(marca);
 
-		System.out.println("DIGITE O PRECO VENDA DO PRODUTO: (CASO HAJA DESCONTO) ");
+		System.out.println("DIGITE O PRECO VENDA DO PRODUTO: ");
 		double precovenda = add.nextDouble();
 		produto.setPrecoVenda(precovenda);
 		
-		Categoria categoria = new Categoria();
-		addCategoria(categoria);
+		add.nextLine();
 		
+		Categoria categoria = new Categoria();
+		
+		System.out.println("DIGITE O CÓDIGO DA CATEGORIA: ");
+		int cod = Integer.parseInt(add.nextLine());
+		produto.setCategoria(categoria).setCod(cod);
 	
+		//Categoria categoria = new Categoria();
+		//addCategoria(categoria);
 		
 		ProdutoDAO produtoDAO = new ProdutoDAO();
 		produtoDAO.inserirProduto(produto);
@@ -87,6 +95,14 @@ public class MenuAdministracao{
 		System.out.println("DIGITE O NOME DA CATEGORIA:");
 		String nome = add.nextLine();
 		categoria.setNome(nome);
+		
+		CategoriaDAO c = new CategoriaDAO();
+		c.inserirCategoria(categoria);
+		/*
+		System.out.println("DIGITE O CODIGO DA CATEGORIA:");
+		int cod = Integer.parseInt(add.nextLine());
+		categoria.setCod(cod);
+		*/
 	}
 	
 
