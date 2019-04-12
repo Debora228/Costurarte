@@ -17,7 +17,7 @@ public class ClienteDAO {
     }
     
 	
-	public void inserirCliente(Cliente cliente) {
+	public boolean inserirCliente(Cliente cliente) {
 		
 		try {
             pst = conecta.conn.prepareStatement("insert into Cliente(Cliente_Id,Cpf,DataNascimento, nome) values (?,?,?,?)");
@@ -29,9 +29,10 @@ public class ClienteDAO {
             
             System.out.println("inserido " + cliente.getContato().getNome());
             JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
-
+            return true;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Não foi inserido!" );
+            return false;
         }
         }
     }

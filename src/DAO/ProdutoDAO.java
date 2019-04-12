@@ -19,7 +19,7 @@ public class ProdutoDAO {
     PreparedStatement pst;
     
     
-    public void inserirProduto(Produto produto){
+    public boolean inserirProduto(Produto produto){
         try {
             pst = conecta.conn.prepareStatement("insert into produto (Produto_ID,Nome,Categoria,Descricao,Quantidade,cor,marca,Preco_venda,Preco_Custo) VALUES ( ?,?, ?, ?,?,?,?,?,?)");
             pst.setInt(1,produto.getCod());
@@ -33,22 +33,24 @@ public class ProdutoDAO {
             pst.setDouble(9, produto.getPrecoCusto());
             pst.executeUpdate();
             System.out.println( "Inserido com sucesso!");
-
+            return true;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Não foi inserido!\n Erro: " + ex.getMessage());
+            return false;
         }
     }
     
-	public void removerProduto(int cod) {
+	public boolean removerProduto(int cod) {
 		try {
 		PreparedStatement pst =  conecta.conn.prepareStatement("delete from Produto where Produto_Id=?");
 		pst.setInt(1,cod);
 	    pst.execute();
 		//String sql = "DELETE FROM PRODUTO WHERE Produto_Id ='" + cod +"'";
-		
+		return true;
 		//conecta.executarQueryGeral(sql);
 		}catch(Exception e) {
 			e.printStackTrace();
+			return false;
 		}
 		
 	}

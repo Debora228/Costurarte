@@ -12,7 +12,7 @@ public class MenuCliente {
 	public MenuCliente() {
 		conecta.conexao();    
 	}
-	public void inicial() {
+	public boolean inicial() {
 		System.out.println( "____________________CLIENTES________________________\r\n" + 
 				"\r\n" + 
 				"Para prosseguir digite uma das opções abaixo:\r\n" + 
@@ -29,11 +29,15 @@ public class MenuCliente {
 		if(num == 1) {
 			Contato contato = new Contato();
 			addContato(contato);
+			return true;
 		}
 		
 		if(num == 2) {
 			Cliente c = new Cliente();
 			addCliente(c);
+			return true;
+		}else {
+			return false;
 		}
 	}
 	
@@ -59,7 +63,7 @@ public class MenuCliente {
 		
 	}
 
-	public void addCliente(Cliente c) {
+	public boolean addCliente(Cliente c) {
 		Contato contato = new Contato();
 		@SuppressWarnings("resource")
 		Scanner add = new Scanner(System.in);
@@ -79,6 +83,8 @@ public class MenuCliente {
 		
 		ClienteDAO cd = new ClienteDAO();
 		cd.inserirCliente(c);
+		return true;
+		}
 	}
 	
 	
@@ -86,4 +92,3 @@ public class MenuCliente {
 
 	
 	
-}

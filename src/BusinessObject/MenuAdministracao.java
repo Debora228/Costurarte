@@ -10,7 +10,7 @@ import model.Produto;
 public class MenuAdministracao{
 	Scanner sc = new Scanner(System.in);
 
-	public int inicial(){
+	public boolean inicial(){
 		System.out.println("\r\n" + 
 				"______________ADMINISTRAÇÃO_________________________\r\n" + 
 				"\r\n" + 
@@ -27,20 +27,23 @@ public class MenuAdministracao{
 		if(num == 1) {
 			Categoria categoria = new Categoria();
 			addCategoria(categoria);
+			return true;
 		}if(num == 2) {
 			Produto produto = new Produto();
 			addProduto(produto);
+			return true;
 		}if(num == 3) {
 			ProdutoDAO p = new ProdutoDAO();
 			System.out.println("DIGITE O CODIGO DO PRODUTO");
 			int cod = sc.nextInt();
 			p.removerProduto(cod);
+			return true;
+		}else {
+		return false;
 		}
-		return num;
-		
 	}
 	
-	public void addProduto(Produto produto) {
+	public boolean addProduto(Produto produto) {
 		@SuppressWarnings("resource")
 		Scanner add = new Scanner(System.in);
 		
@@ -87,6 +90,7 @@ public class MenuAdministracao{
 		
 		ProdutoDAO produtoDAO = new ProdutoDAO();
 		produtoDAO.inserirProduto(produto);
+		return true;
 	}
 
 	private void addCategoria(Categoria categoria) {
