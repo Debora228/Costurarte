@@ -18,13 +18,12 @@ public class CategoriaDAO {
     public void inserirCategoria(Categoria categoria) {
         try {
         pst = conecta.conn.prepareStatement("insert into categoria(Nome) values (?)");
-        //pst.setInt(1, categoria.getCod());
         pst.setString(1, categoria.getNome());
         pst.executeUpdate();
-        JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+        System.out.println("Inserido com sucesso!");
 
     } catch (SQLException ex) {
-        JOptionPane.showMessageDialog(null, "NÃ£o foi inserido!" );
+    	System.out.println("NÃo foi inserido!\n Erro: " + ex);
     }
     }
 }

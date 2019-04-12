@@ -13,14 +13,13 @@ public class MenuCliente {
 		conecta.conexao();    
 	}
 	public boolean inicial() {
+		Consturarte costurarte = new Consturarte();
 		System.out.println( "____________________CLIENTES________________________\r\n" + 
 				"\r\n" + 
 				"Para prosseguir digite uma das opções abaixo:\r\n" + 
 				"\r\n" + 
 				"1 - Adicionar Contato\r\n" +
 				"2 - Adicionar Clientes\r\n" + 
-				"3 - Remover Clientes\r\n" + 
-				"4 - Alterar Cadastro\r\n" + 
 				"\r\n" + 
 				"Digite 0 para voltar ao menu principal.\r\n" + 
 				"\r\n" + 
@@ -29,14 +28,20 @@ public class MenuCliente {
 		if(num == 1) {
 			Contato contato = new Contato();
 			addContato(contato);
+			inicial();
 			return true;
 		}
 		
 		if(num == 2) {
 			Cliente c = new Cliente();
 			addCliente(c);
+			inicial();
 			return true;
-		}else {
+		}if(num ==0) {
+			costurarte.Menu();
+			return true;
+		}
+		else {
 			return false;
 		}
 	}
@@ -68,9 +73,6 @@ public class MenuCliente {
 		@SuppressWarnings("resource")
 		Scanner add = new Scanner(System.in);
 		
-		System.out.println("DIGITE O CÓDIGO DO CLIENTE: ");
-		int codigo = Integer.parseInt(add.nextLine());
-		c.setClienteId(codigo);
 		System.out.println("DIGITE O CPF DO CLIENTE: ");
 		String cpf = add.nextLine();
 		c.setCpf(cpf);

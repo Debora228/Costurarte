@@ -17,7 +17,7 @@ public class DataSource {
         try {
             System.setProperty("jdbc.Drivers", driver);
             conn = DriverManager.getConnection(caminho,usuario,senha);
-            System.out.println("Conexao com o banco de dados realizada com sucesso");
+            //System.out.println("Conexao com o banco de dados realizada com sucesso");
         } catch (SQLException ex) {
             System.out.println("Erro na conexao com o banco:\n Erro: "+ex.getMessage());
         }

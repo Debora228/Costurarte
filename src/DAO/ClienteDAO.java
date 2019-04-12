@@ -20,18 +20,17 @@ public class ClienteDAO {
 	public boolean inserirCliente(Cliente cliente) {
 		
 		try {
-            pst = conecta.conn.prepareStatement("insert into Cliente(Cliente_Id,Cpf,DataNascimento, nome) values (?,?,?,?)");
-            pst.setInt(1, cliente.getClienteId());
-            pst.setString(2, cliente.getCpf());
-            pst.setString(3, cliente.getDataNascimento());
-            pst.setString(4, cliente.getContato().getNome());
+            pst = conecta.conn.prepareStatement("insert into Cliente(Cpf,DataNascimento, nome) values (?,?,?)");
+            
+            pst.setString(1, cliente.getCpf());
+            pst.setString(2, cliente.getDataNascimento());
+            pst.setString(3, cliente.getContato().getNome());
             pst.executeUpdate();
             
-            System.out.println("inserido " + cliente.getContato().getNome());
-            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+            System.out.println("Inserido com sucesso!");
             return true;
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "NÃ£o foi inserido!" );
+        	System.out.println("NÃo foi inserido!\n Erro: " + ex);
             return false;
         }
         }
